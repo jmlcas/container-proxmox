@@ -1,0 +1,25 @@
+services:
+
+    proxmox-ve:
+        image: ghcr.io/longqt-sea/proxmox-ve:latest
+        container_name: pve
+        hostname: pve
+        stdin_open: true
+        tty: true
+        ports:
+            - "2222:22"
+            - "3128:3128"
+            - "8006:8006"
+        restart: unless-stopped
+        privileged: true
+        cgroup: private
+        devices:
+            - /dev/kvm
+        volumes:
+            - /dev/vfio:/dev/vfio
+            - /usr/lib/modules:/usr/lib/modules:ro
+            - /sys/kernel/security:/sys/kernel/security
+            - ./VM-Backup:/var/lib/vz/dump
+            - ./ISOs:/var/lib/vz/template/iso
+        environment:
+            - PASSWORD=p4ssw0rd
