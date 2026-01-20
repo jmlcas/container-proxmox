@@ -1,8 +1,8 @@
 services:
 
-    proxmox-ve:
+    proxmoxve:
         image: ghcr.io/longqt-sea/proxmox-ve:latest
-        container_name: pve
+        container_name: promoxve
         hostname: pve
         stdin_open: true
         tty: true
