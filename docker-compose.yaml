@@ -2,7 +2,7 @@ services:
 
     proxmoxve:
         image: ghcr.io/longqt-sea/proxmox-ve:latest
-        container_name: promoxve
+        container_name: proxmoxve
         hostname: pve
         stdin_open: true
         tty: true
